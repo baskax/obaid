@@ -1,0 +1,44 @@
+{% include "index.html" %}
+{% block body %}
+<div class="container">
+    <div class="row"><h1>Lista obiadów</h1></div>
+    {% if meals is not empty %}
+    <table class="table table-bordered table-striped table-responsive">
+        <thead>
+        <tr>
+            <th>
+                Nazwa
+            </th>
+            <th>
+                Ostatnio wybrany
+            </th>
+            <th>
+                Status
+            </th>
+            <th>Usuń</th>
+         </tr>
+        </thead>
+        <tbody>
+        {% for meal in meals %}
+        <tr>
+            <td>
+                {{ meal.name }}
+            </td>
+            <td>
+                {{ meal.picked_at }}
+            </td>
+            <td>
+                <a href="{{ path_for('toggle', { 'id' : meal.id }) }} ">{% if meal.status == 1 %}Aktywny{% else %}Nieaktywny{% endif %}</a>
+            </td>
+            <td>
+                <a href="{{ path_for('delete',{'id':meal.id}) }}">Usuń</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Brak obiadów</p>
+    {% endif %}
+</div>
+{% endblock %}

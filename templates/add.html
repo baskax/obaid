@@ -1,0 +1,24 @@
+{% include "index.html" %}
+{% block body %}
+<div class="container">
+    <div class="row"><h1>Dodaj nowy posiłek</h1></div>
+    <form class="form-horizontal" method="POST" action="/add">
+        <fieldset>
+            <legend>Dodaj nowy posiłek</legend>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="name">Nazwa</label>
+                <div class="col-md-4">
+                    <input id="name" name="name" type="text" placeholder="" class="form-control input-md" required="">
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="lng">Zapisz</label>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-success">Zapisz</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+{% endblock %}

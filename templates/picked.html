@@ -1,0 +1,11 @@
+{% include "index.html" %}
+{% block body %}
+<div class="container">
+    {% if meal %}
+    <center><h3>Wylosowano:</h3><br>
+<h1><b>{{ meal.name }}</b></h1></center>
+       {% else %}
+    <p>Nie ma obiadów :< </p>
+    {% endif %}
+</div>
+{% endblock %}
